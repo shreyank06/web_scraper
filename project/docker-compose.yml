@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  scraper:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      DB_USER: your_username
+      DB_PASSWORD: your_password
+      DB_HOST: postgres
+      DB_DATABASE: your_database
+    links:
+      - postgres
+
+volumes:
+  pgdata:
