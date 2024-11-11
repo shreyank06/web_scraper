@@ -1,3 +1,5 @@
+A Dockerized web scraper that fetches fire location data (latitude/longitude) from NASA's FIRMS feed every 3 hours and stores it in PostgreSQL. Includes Dockerfile and docker-compose.yml for easy setup.
+
 ###  Build and Run the Docker Containers
 The application and PostgreSQL database are managed using Docker Compose. Use the following commands to build and start the containers:
 ```
